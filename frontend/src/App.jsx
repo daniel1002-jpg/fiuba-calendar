@@ -23,6 +23,16 @@ export default function App() {
     return `${formattedStart} - ${formattedEnd}`;
   };
 
+  // Función que devuelve clases Tailwind según la categoría
+  const getCategoryStyles = (category) => {
+    const styles = {
+      EXAMEN: 'border-l-4 border-red-500 bg-red-50',
+      ACADEMICO: 'border-l-4 border-blue-500 bg-blue-50',
+      ADMINISTRATIVO: 'border-l-4 border-yellow-500 bg-yellow-50',
+    };
+    return styles[category] || 'border-l-4 border-gray-400 bg-gray-50';
+  };
+
   useEffect(() => {
     const fetchEvents = async () => {
       try {
@@ -82,11 +92,14 @@ export default function App() {
       {filteredEvents.length === 0 ? (
         <p>No hay eventos disponibles.</p>
       ) : (
-        <ul className="space-y-2">
+        <ul className="space-y-3">
           {filteredEvents.map((event) => (
-            <li key={event.id} className="p-3 bg-blue-100 rounded">
-              <p className="font-bold">{event.title}</p>
-              <p className="text-sm text-gray-600">{formatDateRange(event.start_date, event.end_date)}</p>
+            <li 
+              key={event.id} 
+              className={`p-4 rounded-lg shadow-md ${getCategoryStyles(event.category)}`}
+            >
+              <p className="font-bold text-lg">{event.title}</p>
+              <p className="text-sm text-gray-600 mt-1">{formatDateRange(event.start_date, event.end_date)}</p>
             </li>
           ))}
         </ul>
