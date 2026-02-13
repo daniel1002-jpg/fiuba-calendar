@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "./components/EventCard";
 import FilterButtons from "./components/FilterButtons";
+import CalendarView from "./components/CalendarView";
 import { groupEventsByMonth } from "./utils";
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filter, setFilter] = useState('TODOS');
+  const [viewMode, setViewMode] = useState('list');
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -54,9 +56,33 @@ export default function App() {
         setFilter={setFilter} 
       />
 
+      {/* Botones de vista (Lista / Calendario) */}
+      <div className="mb-6 flex gap-2">
+        <button
+          onClick={() => setViewMode('list')}
+          className={`px-4 py-2 rounded font-semibold transition ${
+            viewMode === 'list'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+          }`}
+        >
+          📋 Lista
+        </button>
+        <button
+          onClick={() => setViewMode('calendar')}
+          className={`px-4 py-2 rounded font-semibold transition ${
+            viewMode === 'calendar'
+              ? 'bg-blue-600 text-white'
+              : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+          }`}
+        >
+          📅 Calendario
+        </button>
+      </div>
+
       {filteredEvents.length === 0 ? (
         <p>No hay eventos disponibles.</p>
-      ) : (
+      ) : viewMode === 'list' ? (
         <div>
           {Object.entries(groupEventsByMonth(filteredEvents)).map(([monthYear, monthEvents]) => (
             <div key={monthYear} className="mb-6">
@@ -69,6 +95,8 @@ export default function App() {
             </div>
           ))}
         </div>
+      ) : (
+        <CalendarView events={filteredEvents} />
       )}
     </div>
   );

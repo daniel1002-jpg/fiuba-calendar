@@ -1,0 +1,61 @@
+import { useState } from 'react';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment';
+import 'moment/locale/es';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+
+// Configurar localizer con momento en español
+moment.locale('es');
+const localizer = momentLocalizer(moment);
+
+export default function CalendarView({ events }) {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  // Transformar eventos de strings ISO a objetos Date
+  const calendarEvents = events.map((event) => ({
+    id: event.id,
+    title: event.title,
+    start: new Date(event.start_date),
+    end: new Date(event.end_date),
+    category: event.category,
+  }));
+
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    let backgroundColor = '#3b82f6';
+    let borderColor = '#1d4ed8';
+
+    if (event.category === 'EXAMEN') {
+      backgroundColor = '#ef4444';
+      borderColor = '#b91c1c';
+    } else if (event.category === 'ACADEMICO') {
+      backgroundColor = '#3b82f6';
+      borderColor = '#1d4ed8';
+    } else if (event.category === 'ADMINISTRATIVO') {
+      backgroundColor = '#f59e0b';
+      borderColor = '#b45309';
+    }
+
+    return {
+      style: {
+        backgroundColor,
+        borderColor,
+        color: 'white',
+      },
+    };
+  };
+
+  return (
+    <div style={{ height: '500px' }}>
+      <Calendar
+        localizer={localizer}
+        events={calendarEvents}
+        startAccessor="start"
+        endAccessor="end"
+        date={currentDate}
+        onNavigate={(newDate) => setCurrentDate(newDate)}
+        eventPropGetter={eventStyleGetter}
+        style={{ height: '100%' }}
+      />
+    </div>
+  );
+}
