@@ -15,7 +15,12 @@ export default function App() {
     const fetchEvents = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/events");
+        // Detectar entorno y usar la URL correcta
+        const isProd = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+        const apiUrl = isProd
+          ? 'https://fiuba-calendar.onrender.com/api/events'
+          : '/api/events';
+        const response = await fetch(apiUrl);
         if (!response.ok) throw new Error('Error al obtener eventos');
         const data = await response.json();
         setEvents(data);
