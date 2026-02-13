@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
-import 'moment/locale/es';
+import 'moment/dist/locale/es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 // Configurar localizer con momento en español
@@ -44,6 +44,22 @@ export default function CalendarView({ events }) {
     };
   };
 
+  const mensajesEspanol = {
+    allDay: 'Todo el día',
+    previous: 'Anterior',
+    next: 'Siguiente',
+    today: 'Hoy',
+    month: 'Mes',
+    week: 'Semana',
+    day: 'Día',
+    agenda: 'Agenda',
+    date: 'Fecha',
+    time: 'Hora',
+    event: 'Evento',
+    noEventsInRange: 'No hay eventos en este rango.',
+    showMore: total => `+ Ver más (${total})` 
+  };
+
   return (
     <div style={{ height: '500px' }}>
       <Calendar
@@ -55,6 +71,9 @@ export default function CalendarView({ events }) {
         onNavigate={(newDate) => setCurrentDate(newDate)}
         eventPropGetter={eventStyleGetter}
         style={{ height: '100%' }}
+        messages={mensajesEspanol}
+        popup={true}
+        culture='es'
       />
     </div>
   );
