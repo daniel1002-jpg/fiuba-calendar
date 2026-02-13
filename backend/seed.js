@@ -12,23 +12,14 @@ const pool = new Pool({
 });
 
 const seedDatabase = async () => {
+  const jsonPath = path.join(__dirname, '../data-parser/output.json');
+  const rawData = fs.readFileSync(jsonPath);
+  const events = JSON.parse(rawData);
+  
   try {
     console.log('🔌 Conectando a la base de datos...');
-    
-    await pool.query(`
-      CREATE TYPE event_category AS ENUM ('ACADEMICO', 'ADMINISTRATIVO', 'EXAMEN', 'FERIADO');
-      CREATE TABLE IF NOT EXISTS academic_events (
-        id SERIAL PRIMARY KEY,
-        title VARCHAR(255) NOT NULL,
-        category event_category NOT NULL,
-        start_date DATE NOT NULL,
-        end_date DATE NOT NULL
-      );
-    `);
-
-    const jsonPath = path.join(__dirname, '../data-parser/output.json');
-    const events = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-
+    await pool.query('TRUNCATE TABLE academic_events RESTART IDENTITY;');
+    console.log('🧹 Tabla limpiada.');
     console.log(`🌱 Insertando ${events.length} eventos...`);
     
     for (const event of events) {
@@ -40,7 +31,7 @@ const seedDatabase = async () => {
 
     console.log('✨ ¡Base de datos hidratada con éxito!');
   } catch (error) {
-    console.error('❌ Error:', error);
+    console.error('❌ Error insertando datos:', error);
   } finally {
     await pool.end();
   }

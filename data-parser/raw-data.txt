@@ -1,5 +1,0 @@
-Período de Clases: Marzo [9, 22], Abril [6, 13, 20, 27], Mayo [4, 11, 18, 25], Junio [1, 8, 15, 22]
-Evaluaciones Parciales: Abril [13, 20, 27], Mayo [4, 11]
-Inscripción para Cursar Asignaturas: Febrero [23], Agosto [3]
-Desincripción de Asignaturas: Marzo [2, 9, 16], Agosto [10, 17, 24]
-Evaluaciones Integradoras: Febrero [2, 9, 16, 23], Marzo [2], Junio [29], Julio [6, 13, 20], Noviembre [2, 9, 16, 23, 30], Diciembre [7, 14]
