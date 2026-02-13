@@ -6,7 +6,8 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-const requiredEnv = ['DB_USER', 'DB_HOST', 'DB_NAME', 'DB_PASSWORD', 'DB_PORT'];
+const requiredEnv = ['DATABASE_URL'];
+// const requiredEnv = ['DB_USER', 'DB_HOST', 'DB_NAME', 'DB_PASSWORD', 'DB_PORT'];
 const missingEnv = requiredEnv.filter((key) => !process.env[key]);
 if (missingEnv.length > 0) {
   console.error(`❌ Faltan variables de entorno: ${missingEnv.join(', ')}`);
