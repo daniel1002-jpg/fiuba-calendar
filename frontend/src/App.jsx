@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import EventCard from "./components/EventCard";
 import FilterButtons from "./components/FilterButtons";
+import { groupEventsByMonth } from "./utils";
 
 export default function App() {
   const [events, setEvents] = useState([]);
@@ -47,7 +48,6 @@ export default function App() {
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-4">Eventos</h1>
       
-      {/* Botones de filtro */}
       <FilterButtons 
         categories={categories} 
         filter={filter} 
@@ -57,11 +57,18 @@ export default function App() {
       {filteredEvents.length === 0 ? (
         <p>No hay eventos disponibles.</p>
       ) : (
-        <ul className="space-y-3">
-          {filteredEvents.map((event) => (
-            <EventCard key={event.id} event={event} />
+        <div>
+          {Object.entries(groupEventsByMonth(filteredEvents)).map(([monthYear, monthEvents]) => (
+            <div key={monthYear} className="mb-6">
+              <h2 className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm py-3 shadow-sm text-2xl font-bold mb-4 text-gray-800 border-b-2 border-blue-300">{monthYear}</h2>
+              <ul className="space-y-3">
+                {monthEvents.map((event) => (
+                  <EventCard key={event.id} event={event} />
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

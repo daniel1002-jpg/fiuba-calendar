@@ -32,8 +32,8 @@ export default function EventCard({ event }) {
     <li 
       className={`p-4 rounded-lg shadow-md ${getCategoryStyles(event.category)}`}
     >
-      <p className="font-bold text-lg">{event.title}</p>
-      <p className="text-sm text-gray-600 mt-1">
+      <p className="font-bold text-lg text-gray-900">{event.title}</p>
+      <p className="text-sm text-gray-700 mt-1">
         {formatDateRange(event.start_date, event.end_date)}
       </p>
     </li>
