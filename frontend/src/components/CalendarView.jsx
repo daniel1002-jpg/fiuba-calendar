@@ -1,24 +1,31 @@
 import { useState } from 'react';
+import EventModal from './EventModal';
+import { generateGoogleCalendarLink } from '../utils/CalendarUtils';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'moment/dist/locale/es';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-// Configurar localizer con momento en español
 moment.locale('es');
 const localizer = momentLocalizer(moment);
 
 export default function CalendarView({ events }) {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
-  // Transformar eventos de strings ISO a objetos Date
-  const calendarEvents = events.map((event) => ({
-    id: event.id,
-    title: event.title,
-    start: new Date(event.start_date),
-    end: new Date(event.end_date),
-    category: event.category,
-  }));
+  const calendarEvents = events.map((event) => {
+    const fechaLimpiaStart = event.start_date.substring(0, 10);
+    const fechaLimpiaEnd = event.end_date.substring(0, 10);
+
+    return {
+      ...event,
+      start: new Date(`${fechaLimpiaStart}T00:00:00`),
+      
+      end: new Date(`${fechaLimpiaEnd}T23:59:59`),
+      
+      googleLink: generateGoogleCalendarLink(event),
+    };
+  });
 
   const eventStyleGetter = (event, start, end, isSelected) => {
     let backgroundColor = '#3b82f6';
@@ -74,7 +81,9 @@ export default function CalendarView({ events }) {
         messages={mensajesEspanol}
         popup={true}
         culture='es'
+        onSelectEvent={(event) => setSelectedEvent(event)}
       />
+      <EventModal event={selectedEvent} onClose={() => setSelectedEvent(null)} />
     </div>
   );
 }

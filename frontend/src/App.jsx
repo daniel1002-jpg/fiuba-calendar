@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import EventCard from "./components/EventCard";
 import FilterButtons from "./components/FilterButtons";
 import CalendarView from "./components/CalendarView";
-import { groupEventsByMonth } from "./utils";
+import { groupEventsByMonth } from "./utils/CalendarUtils";
 
 export default function App() {
   const [events, setEvents] = useState([]);
@@ -39,7 +39,6 @@ export default function App() {
   if(loading) return <p>Cargando eventos...</p>;
   if(error) return <p className="text-red-500">Error: {error}</p>;
   
-  // Filtrar eventos según el estado filter
   const filteredEvents = filter === 'TODOS' 
     ? events 
     : events.filter(event => event.category === filter);
