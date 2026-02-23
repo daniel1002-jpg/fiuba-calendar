@@ -14,6 +14,8 @@ Este proyecto es una aplicación web que permite visualizar el calendario acadé
 - [Parser PDF con IA](#-parser-pdf-con-ia)
 - [Recursos](#-recursos)
 
+---
+
 ## ✨ Características
 
 - 📱 **Vista de Lista**: Eventos agrupados por mes con sticky headers para navegación móvil
@@ -26,6 +28,8 @@ Este proyecto es una aplicación web que permite visualizar el calendario acadé
 - 🌐 **Fechas en Español**: Fechas formateadas con `date-fns` locale español
 - 🤖 **Parser Automático**: Extracción de eventos desde PDF usando Google Gemini AI
 
+---
+
 ## 🛠 Stack Tecnológico
 
 ### Frontend
@@ -35,14 +39,17 @@ Este proyecto es una aplicación web que permite visualizar el calendario acadé
 - **date-fns** - Manejo de fechas
 - **react-big-calendar** - Componente de calendario
 
-### Backend
+### Backend y Automatización
 - **Node.js + Express** - API REST
-- **PostgreSQL** - Base de datos
+- **Neon (Serverless Postgres)** - Base de datos en la nube
 - **pg** - Cliente PostgreSQL
+- **Python** - Script de automatización del entorno local (`start_dev.py`)
 
 ### Data Parsing
 - **Google Generative AI (Gemini)** - Extracción de datos desde PDF
 - **pdf-parse** - Procesamiento de PDFs
+
+---
 
 ## 📦 Instalación y Setup
 
@@ -79,11 +86,7 @@ npm install
 
 #### Backend (`backend/.env`)
 ```env
-DB_USER=tu_usuario
-DB_HOST=localhost
-DB_NAME=fiuba_calendar
-DB_PASSWORD=tu_password
-DB_PORT=5432
+DATABASE_URL=postgresql://usuario:password@endpoint-de-neon.tech/fiuba_calendar?sslmode=require
 PORT=3001
 ```
 
@@ -92,38 +95,44 @@ PORT=3001
 GOOGLE_API_KEY=tu_api_key_de_google_ai_studio
 ```
 
+---
+
 ## 🚀 Uso (Desarrollo)
 
-### 1. Configurar la Base de Datos
+El proyecto incluye un script de automatización en Python (`start_dev.py`) que simplifica el levantamiento del entorno, manejando el frontend y backend en paralelo.
+
+### 1. Iniciar Servidores (Modo Normal)
+
+Si ya tienes la base de datos configurada, simplemente ejecuta:
 
 ```bash
-# Crear la base de datos en PostgreSQL
-psql -U postgres
-CREATE DATABASE fiuba_calendar;
-\q
-
-# Poblar con datos
-cd backend
-node seed.js
+python start_dev.py
 ```
 
-### 2. Iniciar Backend
+- El backend correrá en http://localhost:3001
+
+- El frontend estará disponible en http://localhost:5173
+
+### 2. Actualizar la Base de Datos (Seeding)
+
+Si hay un nuevo (`output.json`) y necesitas actualizar los eventos en la base de datos (Neon):
 
 ```bash
-cd backend
-npm run dev
+python start_dev.py --seed
 ```
 
-El servidor correrá en `http://localhost:3001`
+Esto borrará los eventos viejos, insertará los nuevos y luego levantará ambos servidores.
 
-### 3. Iniciar Frontend
+### 3. Regenerar JSON y Actualizar (Ciclo Completo)
+
+Para consultar a la IA, generar un nuevo JSON desde el PDF y subirlo a la DB automáticamente:
 
 ```bash
-cd frontend
-npm run dev
+python start_dev.py --update-all
 ```
+> Nota: Esto sobrescribirá cualquier cambio en el archivo (`output.json`)
 
-La aplicación estará disponible en `http://localhost:5173`
+---
 
 ## 💾 Backend y Base de Datos
 
@@ -152,6 +161,8 @@ El script `seed.js` lee `data-parser/output.json` y puebla la base de datos:
 cd backend
 node seed.js
 ```
+
+---
 
 ## 🤖 Parser PDF con IA
 
@@ -188,6 +199,8 @@ node parser.js
   }
 ]
 ```
+
+---
 
 ## 📚 Recursos
 
