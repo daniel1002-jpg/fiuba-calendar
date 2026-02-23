@@ -1,0 +1,320 @@
+[
+  {
+    "title": "Período de Clases (1er Cuatrimestre)",
+    "category": "ACADEMICO",
+    "start_date": "2026-03-09",
+    "end_date": "2026-06-27"
+  },
+  {
+    "title": "Período de Clases (2do Cuatrimestre)",
+    "category": "ACADEMICO",
+    "start_date": "2026-08-17",
+    "end_date": "2026-11-28"
+  },
+  {
+    "title": "Evaluaciones Parciales (1er Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-04-20",
+    "end_date": "2026-06-20"
+  },
+  {
+    "title": "Evaluaciones Parciales (2do Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-09-21",
+    "end_date": "2026-11-21"
+  },
+  {
+    "title": "Evaluaciones Parciales - 1ra. recuperación (1er Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-11"
+  },
+  {
+    "title": "Evaluaciones Parciales - 1ra. recuperación (2do Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-11-30",
+    "end_date": "2026-12-12"
+  },
+  {
+    "title": "Evaluaciones Parciales - 2da. recuperación (1er Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-07-13",
+    "end_date": "2026-07-18"
+  },
+  {
+    "title": "Evaluaciones Parciales - 2da. recuperación (2do Cuatrimestre)",
+    "category": "EXAMEN",
+    "start_date": "2026-12-14",
+    "end_date": "2026-12-19"
+  },
+  {
+    "title": "Período para completar encuestas estudiantiles (1er Cuatrimestre)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-06-01",
+    "end_date": "2026-06-27"
+  },
+  {
+    "title": "Período para completar encuestas estudiantiles (2do Cuatrimestre)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-11-02",
+    "end_date": "2026-11-28"
+  },
+  {
+    "title": "Evaluaciones Integradoras (Febrero/Marzo 2026)",
+    "category": "EXAMEN",
+    "start_date": "2026-02-02",
+    "end_date": "2026-03-07"
+  },
+  {
+    "title": "Evaluaciones Integradoras (Julio/Agosto 2026)",
+    "category": "EXAMEN",
+    "start_date": "2026-07-20",
+    "end_date": "2026-08-15"
+  },
+  {
+    "title": "Evaluaciones Integradoras (Diciembre 2026)",
+    "category": "EXAMEN",
+    "start_date": "2026-12-21",
+    "end_date": "2026-12-26"
+  },
+  {
+    "title": "Evaluaciones Integradoras (Febrero/Marzo 2027)",
+    "category": "EXAMEN",
+    "start_date": "2027-02-01",
+    "end_date": "2027-03-06"
+  },
+  {
+    "title": "Presentación de Certificados de Trabajo / Discapacidad",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-14"
+  },
+  {
+    "title": "Presentación de Certificados de Trabajo / Discapacidad (2do cuat)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-07-06",
+    "end_date": "2026-07-18"
+  },
+  {
+    "title": "Publicación de oferta horaria de asignaturas para cursar",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-16",
+    "end_date": "2026-02-21"
+  },
+  {
+    "title": "Publicación de oferta horaria de asignaturas para cursar (2do cuat)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-07-27",
+    "end_date": "2026-08-01"
+  },
+  {
+    "title": "Evaluación de Prioridades para Inscripción Asignat. a Cursar",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-23",
+    "end_date": "2026-02-28"
+  },
+  {
+    "title": "Evaluación de Prioridades para Inscripción Asignat. a Cursar (2do cuat)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-08-03",
+    "end_date": "2026-08-08"
+  },
+  {
+    "title": "Inscripción para Cursar Asignaturas",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-02",
+    "end_date": "2026-03-14"
+  },
+  {
+    "title": "Inscripción para Cursar Asignaturas (2do cuat)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-08-10",
+    "end_date": "2026-08-15"
+  },
+  {
+    "title": "Desinscripción de Asignaturas",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-16",
+    "end_date": "2026-04-04"
+  },
+  {
+    "title": "Desinscripción de Asignaturas (2do cuat)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-08-24",
+    "end_date": "2026-09-12"
+  },
+  {
+    "title": "Inscripción para Evaluaciones Integradoras (Febrero/Marzo 2026)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-01-26",
+    "end_date": "2026-03-07"
+  },
+  {
+    "title": "Inscripción para Evaluaciones Integradoras (Julio/Agosto 2026)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-06-15",
+    "end_date": "2026-08-15"
+  },
+  {
+    "title": "Inscripción para Evaluaciones Integradoras (Noviembre/Diciembre 2026)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-11-23",
+    "end_date": "2026-12-19"
+  },
+  {
+    "title": "Inscripción para Evaluaciones Integradoras (Febrero/Marzo 2027)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2027-01-25",
+    "end_date": "2027-03-06"
+  },
+  {
+    "title": "Admisión de estudiantes del CBC",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-23",
+    "end_date": "2026-03-07"
+  },
+  {
+    "title": "Periodo postulaciones movilidad académica saliente (sig cuatr)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-30",
+    "end_date": "2026-05-16"
+  },
+  {
+    "title": "Periodo de Solicitud de Prórrogas de Asignaturas Vencidas",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-14"
+  },
+  {
+    "title": "Periodo de Solicitud de Excepciones de Correlatividades",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-02",
+    "end_date": "2026-02-14"
+  },
+  {
+    "title": "Recepción de otros trámites (para el cuatrimestre siguiente)",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-05-11",
+    "end_date": "2026-06-13"
+  },
+  {
+    "title": "Publicación de oferta horaria de asignaturas de cursos de verano",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-11-23",
+    "end_date": "2026-11-28"
+  },
+  {
+    "title": "Inscripción para Cursos de Verano 2027",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-12-07",
+    "end_date": "2026-12-12"
+  },
+  {
+    "title": "Desinscripción de Cursos de Verano",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-12-14",
+    "end_date": "2026-12-26"
+  },
+  {
+    "title": "Inicio de los Cursos de Verano",
+    "category": "ACADEMICO",
+    "start_date": "2027-01-25",
+    "end_date": "2027-01-30"
+  },
+  {
+    "title": "Recepción de trámites de simultaneidad entre carreras de FIUBA",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-09",
+    "end_date": "2026-02-21"
+  },
+  {
+    "title": "Periodo para abonar tramite de convalidación para el sig. cuatrim.",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-23",
+    "end_date": "2026-04-25"
+  },
+  {
+    "title": "Periodo para mesas de examen especiales",
+    "category": "EXAMEN",
+    "start_date": "2026-05-04",
+    "end_date": "2026-05-09"
+  },
+  {
+    "title": "Charla de Ingresantes",
+    "category": "ACADEMICO",
+    "start_date": "2026-03-02",
+    "end_date": "2026-03-07"
+  },
+  {
+    "title": "Charla de Bienvenida a estudiantes de movilidad académica",
+    "category": "ACADEMICO",
+    "start_date": "2026-03-09",
+    "end_date": "2026-03-14"
+  },
+  {
+    "title": "Registro de notas de cursadas en Guaraní",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-06-29",
+    "end_date": "2026-07-11"
+  },
+  {
+    "title": "Carga de notas de Evaluaciones integradoras en Guaraní",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-02",
+    "end_date": "2026-03-14"
+  },
+  {
+    "title": "Fecha límite presentación de planificaciones",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-11"
+  },
+  {
+    "title": "Fecha límite presentación planificaciones de Cursos de Verano",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-10-26",
+    "end_date": "2026-10-31"
+  },
+  {
+    "title": "Solicitud Renovación Designaciones Interinas",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-04-06",
+    "end_date": "2026-05-30"
+  },
+  {
+    "title": "Propuesta Cursos de Verano",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-11-02",
+    "end_date": "2026-11-21"
+  },
+  {
+    "title": "Cierre de Actas de cursadas en Guaraní",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-06-15",
+    "end_date": "2026-06-27"
+  },
+  {
+    "title": "Periodo de entrega de dictamenes para Convalidaciones",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-04-27",
+    "end_date": "2026-05-30"
+  },
+  {
+    "title": "Asignación de aulas",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-02-09",
+    "end_date": "2026-03-07"
+  },
+  {
+    "title": "Verificación de regularidad de los estudiantes",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-02",
+    "end_date": "2026-03-14"
+  },
+  {
+    "title": "Confirmación de inscripciones pendientes",
+    "category": "ADMINISTRATIVO",
+    "start_date": "2026-03-30",
+    "end_date": "2026-04-04"
+  }
+]
