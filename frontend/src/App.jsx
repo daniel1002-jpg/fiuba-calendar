@@ -36,12 +36,33 @@ export default function App() {
     fetchEvents();
   }, []);
 
-  if(loading) return <p>Cargando eventos...</p>;
+  useEffect(() => {
+    if (viewMode === 'list' && !loading && events.length > 0) {
+      const now = new Date();
+      const monthName = now.toLocaleString('es-ES', { month: 'long' });
+      const currentId = `${monthName.toLowerCase()}-${now.getFullYear()}`;
+      const element = document.getElementById(currentId);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, [viewMode, loading, events]);
+
+  if(loading) return (
+    <div className="flex h-[50vh] items-center justify-center">
+      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>
+  );
   if(error) return <p className="text-red-500">Error: {error}</p>;
   
   const filteredEvents = filter === 'TODOS' 
     ? events 
     : events.filter(event => event.category === filter);
+
+  const now = new Date();
+  const upcomingEvents = filteredEvents.filter(event => new Date(event.end_date) >= now);
 
   const categories = [
     { label: 'Todos', value: 'TODOS' },
@@ -88,9 +109,14 @@ export default function App() {
         <p>No hay eventos disponibles.</p>
       ) : viewMode === 'list' ? (
         <div>
-          {Object.entries(groupEventsByMonth(filteredEvents)).map(([monthYear, monthEvents]) => (
-            <div key={monthYear} className="mb-6">
-              <h2 className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm py-3 shadow-sm text-2xl font-bold mb-4 text-gray-800 border-b-2 border-blue-300">{monthYear}</h2>
+          {Object.entries(groupEventsByMonth(upcomingEvents)).map(([monthYear, monthEvents]) => (
+              <div key={monthYear} className="mb-6">
+                <h2
+                  id={monthYear.toLowerCase().replace(' ', '-')}
+                  className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm py-3 shadow-sm text-2xl font-bold mb-4 text-gray-800 border-b-2 border-blue-300"
+                >
+                  {monthYear}
+                </h2>
               <ul className="space-y-3">
                 {monthEvents.map((event) => (
                   <EventCard key={event.id} event={event} />
