@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Footer from "./components/Footer";
 import EventCard from "./components/EventCard";
 import FilterButtons from "./components/FilterButtons";
 import CalendarView from "./components/CalendarView";
@@ -73,7 +74,27 @@ export default function App() {
   
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Eventos</h1>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <h1 className="text-3xl font-bold">Eventos</h1>
+        <div className="flex gap-3 items-center">
+          <a 
+            href="https://tally.so/r/BzXR2e" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-blue-600 font-medium text-sm transition-colors flex items-center gap-1 bg-gray-100 hover:bg-gray-200 py-2 px-3 rounded-md"
+          >
+            🐞 Sugerencias
+          </a>
+          <a 
+            href="https://cafecito.app/daniel-mamani" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full text-sm transition-colors shadow-sm"
+          >
+            ☕ Invitar un Cafecito
+          </a>
+        </div>
+      </div>
       
       <FilterButtons 
         categories={categories} 
@@ -128,6 +149,7 @@ export default function App() {
       ) : (
         <CalendarView events={filteredEvents} />
       )}
+      <Footer />
     </div>
   );
 }
